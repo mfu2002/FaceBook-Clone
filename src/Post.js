@@ -7,15 +7,15 @@ import NearMeIcon from '@mui/icons-material/NearMe';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
-function Post({profilePic, image, username, timestamp, message}) {
+function Post({postProfilePic, image, username, timestamp, message}) {
   return (
     <div class='post'>
         <div className='post__top'>
-            <Avatar  src={profilePic}
+            <Avatar  src={postProfilePic}
                 className='post__avatar'/>
             <div className='post__topInfo'>
                 <h3>{username}</h3>
-                <p>{timestamp}</p>
+                <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
             </div>
         </div>
 
