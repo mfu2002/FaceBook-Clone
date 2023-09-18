@@ -1,19 +1,29 @@
 import './App.css';
 import Feed from './Feed';
 import Header from './Header';
+import Login from './Login';
 import Sidebar from './Sidebar';
+import { useStateValue } from './StateProvider';
 import Widget from './Widget';
+import './firebase'
 
 function App() {
+  const [{user}, dispatch] = useStateValue();
+
   return (
     <div className="app">
-    <Header />
+      {!user ? <Login />: (
+        <>
+        <Header />
 
-      <div className='app_body'>
-        <Sidebar />
-        <Feed />
-        <Widget />
-      </div>
+        <div className='app_body'>
+          <Sidebar />
+          <Feed />
+          <Widget />
+        </div>
+        </>
+      )}
+      
     </div>
   );
 }

@@ -8,11 +8,13 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+  const [{user}, dispatch] = useStateValue();
   return (
     <div className='sidebar'>
-        <SidebarRow src='https://lh3.googleusercontent.com/a/ACg8ocLlCmllXt5yM8dxw1k31ajvRt2r_knzhuiP3spnL2KWYBg=s288-c-no' title='Faisal Karim' />
+        <SidebarRow src={user.photoURL} title={user.displayName} />
         <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
         <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
         <SidebarRow Icon={PeopleIcon} title='Friends' />
